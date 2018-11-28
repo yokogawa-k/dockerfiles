@@ -6,7 +6,8 @@ SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[
 REPO_URL="${REPO_URL:-yokogawa}"
 JOBS=${JOBS:-2}
 
-ERRORS="$(pwd)/errors"
+ERRORS="$(pwd)/.errors"
+IGNORE="$(pwd)/ignore"
 
 build(){
   base=$1
@@ -25,17 +26,30 @@ dofile() {
   build_dir=$(dirname ${f})
   suite=${build_dir##*\/}
 
-  if [[ -z "${suite}" ]] || [[ "${suite}" == "${base}" ]]; then
-    suite=latest
+  skip=0
+  if [[ -f ${IGNORE} ]]; then
+    if echo ${base} | grep -f ${IGNORE} >/dev/null; then
+      skip=1
+    fi
   fi
 
-  {
-    $SCRIPT build "${base}" "${suite}" "${build_dir}"
-  } || {
-    echo "${base}:${suite}" >> ${ERRORS}
-  }
-  echo
-  echo
+  if [[ -z "${suite}" ]] || [[ "${suite}" == "${base}" ]]; then
+    image_name=${base}
+  else
+    image_name=${base}-${suite}
+  fi
+
+  if [[ ${skip} -eq 0 ]]; then
+    {
+      $SCRIPT build "${image_name}" latest "${build_dir}"
+    } || {
+      echo "${image_name}:latest" >> ${ERRORS}
+    }
+    echo
+    echo
+  else
+    echo "${base} is skipped (${IGNORE})"
+  fi
 }
 
 main(){
