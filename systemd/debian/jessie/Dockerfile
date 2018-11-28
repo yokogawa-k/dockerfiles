@@ -3,7 +3,7 @@
 # docker run --rm -d \
 #       --name systemd-jessie \
 #       --privileged \
-#       yokogawa/systemd:jessie
+#       yokogawa/systemd-jessie
 #
 
 FROM debian:8-slim
@@ -18,7 +18,7 @@ RUN set -ex \
         systemd \
         libsystemd0 \
         systemd-sysv \
-        dbus\
+        dbus \
         libpam-systemd \
         less \
     && systemctl mask getty@tty1.service systemd-timesyncd.service \
