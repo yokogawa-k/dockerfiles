@@ -2,12 +2,13 @@
 set -e
 set -o pipefail
 
-SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+SCRIPT="${BASE_DIR}/$(basename "${BASH_SOURCE[0]}")"
 REPO_URL="${REPO_URL:-yokogawa}"
 JOBS=${JOBS:-2}
 
-ERRORS="$(pwd)/.errors"
-IGNORE="$(pwd)/ignore"
+ERRORS="${BASE_DIR}/.errors"
+IGNORE="${BASE_DIR}/ignore"
 
 build(){
   base=$1
