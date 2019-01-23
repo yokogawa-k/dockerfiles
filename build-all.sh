@@ -10,6 +10,8 @@ JOBS=${JOBS:-2}
 ERRORS="${BASE_DIR}/.errors"
 IGNORE="${BASE_DIR}/ignore"
 
+cd ${BASE_DIR}
+
 build(){
   base=$1
   suite=$2
