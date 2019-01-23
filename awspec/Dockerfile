@@ -16,6 +16,6 @@ RUN set -ex \
       && bundle install --jobs=$(nproc)
 
 WORKDIR /work
-ENTRYPOINT ["bundle", "exec", "awspec"]
+ENTRYPOINT ["bundle", "exec"]
 
 CMD ["--help"]

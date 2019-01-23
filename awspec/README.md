@@ -20,7 +20,7 @@ docker run -it --rm -v ${PWD}:/work yokogawa/awspec awspec configure
 ### Run tests
 
 ```console
-docker run -it --rm -v ${PWD}:/work yokogawa/awspec bundle exec rake spec
+docker run -it --rm -v ${PWD}:/work yokogawa/awspec rake spec
 ```
 
 ### generate
