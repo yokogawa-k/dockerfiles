@@ -4,8 +4,8 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     aws-eventstream (1.0.1)
-    aws-partitions (1.133.0)
-    aws-sdk-core (3.46.0)
+    aws-partitions (1.143.0)
+    aws-sdk-core (3.46.2)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -22,7 +22,7 @@ GEM
     macaddr (1.7.1)
       systemu (~> 2.6.2)
     public_suffix (3.0.3)
-    roadworker (0.5.9)
+    roadworker (0.5.10)
       aws-sdk-route53 (>= 1.13.0)
       diffy
       dnsruby
