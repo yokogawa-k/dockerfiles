@@ -8,13 +8,7 @@ Docker image for [awspec](https://github.com/k1LoW/awspec)
 ### init
 
 ```console
-docker run -it --rm -v ${PWD}:/work yokogawa/awspec awspec init
-```
-
-### configure
-
-```console
-docker run -it --rm -v ${PWD}:/work yokogawa/awspec awspec configure
+docker run -it --rm --user $(id -u):$(id -g) -v ${PWD}:/work yokogawa/awspec awspec init
 ```
 
 ### Run tests
