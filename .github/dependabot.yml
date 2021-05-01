@@ -1,0 +1,57 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/roadworker"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - yokogawa-k
+  assignees:
+  - yokogawa-k
+  labels:
+  - dependencies
+- package-ecosystem: bundler
+  directory: "/awspec"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - yokogawa-k
+  assignees:
+  - yokogawa-k
+  labels:
+  - dependencies
+- package-ecosystem: bundler
+  directory: "/piculet"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - yokogawa-k
+  assignees:
+  - yokogawa-k
+  labels:
+  - dependencies
+- package-ecosystem: bundler
+  directory: "/cfdef"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - yokogawa-k
+  assignees:
+  - yokogawa-k
+  labels:
+  - dependencies
+- package-ecosystem: pip
+  directory: "/cfn-python-lint"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - yokogawa-k
+  assignees:
+  - yokogawa-k
+  labels:
+  - dependencies
