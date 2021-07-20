@@ -12,7 +12,7 @@
 FROM ruby:alpine
 
 WORKDIR /app
-COPY Gemfile Gemfile.lock /app/
+COPY Gemfile /app/
 ENV BUNDLE_GEMFILE /app/Gemfile
 RUN set -ex \
       && bundle install --jobs=$(nproc)
